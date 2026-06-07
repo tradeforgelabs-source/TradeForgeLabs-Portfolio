@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>TradeForge Labs — Trade with Rules. Not with Emotions.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0c15;
+    --ink2: #141824;
+    --body: #2d3142;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --bg: #faf9f7;
+    --white: #ffffff;
+    --gold: #c9a84c;
+    --teal: #0d9488;
+    --teal-dark: #0f766e;
+    --teal2: #14b8a6;
+    --accent-bg: #f0fdf9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--body);
+    line-height: 1.6;
+  }
+
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+  /* Header / Hero */
+  .hero {
+    padding: 80px 0 50px;
+    text-align: center;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 50px;
+  }
+
+  .logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+  .logo span { color: var(--teal); }
+
+  .tagline-primary {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 24px 0 12px;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .tagline-secondary {
+    font-size: 1rem;
+    color: var(--teal);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.02em;
+    margin-bottom: 16px;
+  }
+
+  .tagline-desc {
+    max-width: 550px;
+    margin: 0 auto;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .pill {
+    display: inline-block;
+    background: var(--teal);
+    color: white;
+    font-size: 0.7rem;
+    padding: 4px 14px;
+    border-radius: 30px;
+    margin-top: 20px;
+    font-weight: 500;
+  }
+
+  /* Section Titles */
+  .section-title {
+    font-size: 1.4rem;
+    color: var(--ink);
+    margin-bottom: 24px;
+    font-weight: 600;
+  }
+
+  /* Cards */
+  .project-card, .rule-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 20px;
+    transition: all 0.2s;
+  }
+
+  .project-card:hover, .rule-card:hover {
+    border-color: var(--teal2);
+    box-shadow: 0 8px 24px rgba(13,148,136,0.08);
+  }
+
+  .project-title {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .project-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  .tech-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    padding: 3px 8px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-right: 6px;
+    margin-bottom: 4px;
+  }
+
+  .price {
+    color: var(--teal);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 12px 0 8px;
+  }
+
+  .btn {
+    display: inline-block;
+    background: var(--ink);
+    color: white;
+    padding: 10px 24px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.8rem;
+    margin-top: 12px;
+    transition: background 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-teal {
+    background: var(--teal);
+  }
+  .btn-teal:hover { background: var(--teal-dark); }
+  .btn-outline {
+    background: transparent;
+    border: 1.5px solid var(--line);
+    color: var(--ink);
+  }
+  .btn-outline:hover { border-color: var(--teal); background: transparent; }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 32px 0;
+  }
+
+  .feature-item {
+    text-align: center;
+    padding: 20px;
+    background: white;
+    border-radius: 16px;
+    border: 1px solid var(--line);
+  }
+
+  .stats-banner {
+    background: var(--ink);
+    color: white;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .stats-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .stat { text-align: center; }
+  .stat-number { font-size: 2rem; font-weight: 700; color: var(--teal2); }
+  .stat-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
+
+  footer {
+    text-align: center;
+    padding: 40px 0 32px;
+    border-top: 1px solid var(--line);
+    margin-top: 50px;
+    color: var(--muted);
+    font-size: 0.7rem;
+  }
+
+  @media (max-width: 640px) {
+    .tagline-primary { font-size: 1.6rem; }
+    .hero { padding: 50px 0 30px; }
+    .stats-grid { gap: 20px; }
+    .stat-number { font-size: 1.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="hero">
+    <div class="logo">Trade<span>Forge</span> Labs</div>
+    <div class="tagline-primary">Trade with Rules.<br>Not with Emotions.</div>
+    <div class="tagline-secondary">No guru. No face. Just system.</div>
+    <div class="tagline-desc">
+      12+ proprietary scanners. Active in market daily.<br>
+      Scanner-based signals. Fixed SL/TP. Full transparency.
+    </div>
+    <div class="pill">⚙️ India's First Anonymous Rule-Based Tool Platform</div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-banner">
+    <div class="stats-grid">
+      <div class="stat"><div class="stat-number">12+</div><div class="stat-label">Tools Built</div></div>
+      <div class="stat"><div class="stat-number">500+</div><div class="stat-label">Pairs Scanned</div></div>
+      <div class="stat"><div class="stat-number">5+ yr</div><div class="stat-label">Trading Experience</div></div>
+      <div class="stat"><div class="stat-number">20/d</div><div class="stat-label">Daily Trades</div></div>
+    </div>
+  </div>
+
+  <!-- How It Works -->
+  <div>
+    <h2 class="section-title">⚙️ How It Works</h2>
+    <div class="feature-grid">
+      <div class="feature-item">📡 <strong>Scanner-Based</strong><br>No bias. No emotion. Just data.</div>
+      <div class="feature-item">📏 <strong>Fixed Rules</strong><br>Entry. SL. TP. Every signal.</div>
+      <div class="feature-item">📊 <strong>Transparent</strong><br>Win/Loss both posted.</div>
+      <div class="feature-item">🎯 <strong>500 Members</strong><br>Custom rule builder unlocks.</div>
+    </div>
+  </div>
+
+  <!-- Live Tools -->
+  <div>
+    <h2 class="section-title">🔨 Live Tools (Free Access)</h2>
+    
+    <div class="project-card">
+      <div class="project-title">📊 EMA Sniper Scanner</div>
+      <div class="project-desc">Real-time scanner for 500+ pairs. Detects EMA 5/13/62 confluence on 1H timeframe.</div>
+      <div><span class="tech-tag">Binance Futures</span><span class="tech-tag">EMA 5/13/62</span><span class="tech-tag">HH/HL Detection</span></div>
+      <a href="#" class="btn btn-outline" style="margin-top: 12px;">🔗 Launch Scanner →</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-title">⚠️ DumpRadar Pro</div>
+      <div class="project-desc">7-layer dump detection scoring. Early warning before major dumps.</div>
+      <div><span class="tech-tag">Bybit V5 API</span><span class="tech-tag">Volume Analysis</span><span class="tech-tag">7-Layer Scoring</span></div>
+      <a href="#" class="btn btn-outline" style="margin-top: 12px;">🔗 Launch Tool →</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-title">🏦 SMC Analyzer</div>
+      <div class="project-desc">Order Block + FVG + CHoCH detection. Institutional flow mapped.</div>
+      <div><span class="tech-tag">CoinDCX</span><span class="tech-tag">SMC</span><span class="tech-tag">OB/FVG</span></div>
+      <a href="#" class="btn btn-outline" style="margin-top: 12px;">🔗 Launch Tool →</a>
+    </div>
+  </div>
+
+  <!-- Plans -->
+  <div>
+    <h2 class="section-title">💰 Plans (Coming Soon)</h2>
+    
+    <div class="rule-card">
+      <div class="project-title">🔓 Free — Basic Scanners</div>
+      <div class="project-desc">EMA Sniper • DumpRadar Lite • MTF Scanner</div>
+      <div class="price">₹0</div>
+    </div>
+
+    <div class="rule-card">
+      <div class="project-title">⚡ Pro — Custom Rule Builder</div>
+      <div class="project-desc">1 active custom rule. You define. We build. Telegram alerts included.</div>
+      <div class="price">₹499 / month</div>
+      <a href="#" class="btn btn-teal">Join Waitlist →</a>
+    </div>
+
+    <div class="rule-card">
+      <div class="project-title">🏆 Elite — Unlimited Rules</div>
+      <div class="project-desc">Unlimited custom scanners + priority build (48 hrs) + dedicated support</div>
+      <div class="price">₹999 / month</div>
+      <a href="#" class="btn btn-outline">Join Waitlist →</a>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="text-align: center; margin: 48px 0;">
+    <a href="https://t.me/TradeForgelabs" class="btn btn-teal" style="padding: 14px 32px; font-size: 1rem;">📩 Join Telegram — Free Signals</a>
+    <p style="margin-top: 16px; font-size: 0.7rem; color: var(--muted);">First 100 members: Priority access to custom rule builder</p>
+  </div>
+</div>
+
+<footer>
+  TradeForge Labs — Trade with Rules. Not with Emotions.<br>
+  No guru. No face. Just system. | © 2026
+</footer>
+
+</body>
+</html>
